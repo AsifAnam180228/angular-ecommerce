@@ -23,6 +23,41 @@
 <!--                product empty display message-->
 
             </div>
+<!--            begin footer-->
+            <div class="footer-pagination">
+                <div class="row">
+                    <div class="col-md-6">
+
+                    </div>
+                    <div class="col-md-6">
+                        <div class="row">
+                            <div class="col-mod-9" style="padding-left: 30%">
+                                <ngb-pagination [(page)]="thePageNumber"
+                                                [pageSize]="thePageSize"
+                                                [collectionSize]="theTotalElements"
+                                                (pageChange)="listProducts()"
+                                >
+
+                                </ngb-pagination>
+                            </div>
+                            <div class="col-md-3 mt-2" style="text-align: right">
+                                <span class="mr-2">
+                                    <select #myPageSelect (change) ="updatePageSize(myPageSelect.value)">
+                                        <option >5</option>
+                                        <option selected = "selected">10</option>
+                                        <option>20</option>
+                                        <option>50</option>
+
+                                    </select>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+<!--            end footer-->
         </div>
     </div>
 </div>
