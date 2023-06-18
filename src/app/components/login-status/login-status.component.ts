@@ -1,6 +1,6 @@
 import {Component, Inject, OnInit} from '@angular/core';
 import {OKTA_AUTH, OktaAuthStateService} from "@okta/okta-angular";
-import OktaAuth from "@okta/okta-auth-js";
+import {OktaAuth} from "@okta/okta-auth-js";
 
 @Component({
   selector: 'app-login-status',

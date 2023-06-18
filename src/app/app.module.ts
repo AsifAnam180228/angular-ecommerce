@@ -30,6 +30,8 @@ import myAppConfig from "./config/my-app-config";
 const oktaConfig = myAppConfig.oidc;
 const oktaAuth = new OktaAuth(oktaConfig);
 
+import { AuthModule} from "@auth0/auth0-angular";
+
 
 const routes: Routes = [
 
@@ -65,7 +67,8 @@ const routes: Routes = [
     HttpClientModule,
     NgbModule,
     ReactiveFormsModule,
-    OktaAuthModule
+    OktaAuthModule,
+    AuthModule.forRoot()
   ],
   providers: [ProductService, {provide: OKTA_CONFIG, useValue:{oktaAuth}}],
   bootstrap: [AppComponent]
