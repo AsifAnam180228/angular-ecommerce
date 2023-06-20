@@ -20,21 +20,18 @@ import { LoginComponent } from './components/login/login.component';
 import { LoginStatusComponent } from './components/login-status/login-status.component';
 import {
   OktaAuthModule,
-    OktaCallbackComponent,
-    OKTA_CONFIG
+  OktaCallbackComponent,
+  OKTA_CONFIG
 } from "@okta/okta-angular";
 import {OktaAuth} from '@okta/okta-auth-js';
 
 import myAppConfig from "./config/my-app-config";
 
 const oktaConfig = myAppConfig.oidc;
+
 const oktaAuth = new OktaAuth(oktaConfig);
 
-import { AuthModule} from "@auth0/auth0-angular";
-
-
 const routes: Routes = [
-
   {path: 'login/callback', component: OktaCallbackComponent},
   {path: 'login', component: LoginComponent},
   {path: 'checkout', component: CheckoutComponent},
@@ -67,8 +64,7 @@ const routes: Routes = [
     HttpClientModule,
     NgbModule,
     ReactiveFormsModule,
-    OktaAuthModule,
-    AuthModule.forRoot()
+    OktaAuthModule
   ],
   providers: [ProductService, {provide: OKTA_CONFIG, useValue:{oktaAuth}}],
   bootstrap: [AppComponent]
