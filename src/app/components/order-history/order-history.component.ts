@@ -19,7 +19,14 @@ export class OrderHistoryComponent implements OnInit {
   handleOrderHistory(){
     //read user's email frpm browser
     const theEmail = JSON.parse(this.storage.getItem('userEmail')!);
-    
+
+    //retrieve data from the service
+    this.orderHistoryService.getOrderHistory(theEmail).subscribe(
+        data =>{
+          this.orderHistoryList = data._embedded.orders;
+        }
+    )
+    console.log(this.orderHistoryList)
   }
 
 }
